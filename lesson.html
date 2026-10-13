@@ -33,6 +33,17 @@
       <button class="btn small done-toggle" id="done-btn">✓ 完了にする</button>
     </div>
 
+    <div class="card" style="margin-bottom:16px;padding:14px 16px">
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+        <div>
+          <strong>Claude Code 以外で使う:</strong>
+          <span class="muted">講師プロンプト + このレッスン本文をまとめてコピーして、claude.ai などに貼り付け</span>
+        </div>
+        <button class="btn small primary" id="prompt-btn">Claude 用プロンプトをコピー</button>
+      </div>
+      <p class="muted" style="margin:8px 0 0;font-size:13px">前回までの記録(<code>progress/profile.md</code> と直近の <code>progress/sessions/</code>)も続けて貼ると、記録を踏まえたレッスンになります。</p>
+    </div>
+
     <div class="copy-box" style="margin-bottom:16px">
       <span id="claude-cmd">Claude Code で始める: /lesson 01</span>
       <button class="btn small" data-copy-target="claude-cmd-raw">コピー</button>

@@ -147,6 +147,7 @@
       });
       refreshDone();
 
+      setupPromptButton(lesson);
       return fetchText('lessons/' + lesson.file);
     }).then(function (md) {
       var html = marked.parse(stripFrontMatter(md), { gfm: true, breaks: true });
@@ -164,6 +165,32 @@
     });
 
     setupTimer();
+  }
+
+  // ---------- "copy prompt for Claude" ----------
+  function setupPromptButton(lesson) {
+    var btn = document.getElementById('prompt-btn');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      btn.disabled = true;
+      Promise.all([fetchText('prompts/tutor-system-prompt.md'), fetchText('lessons/' + lesson.file)]).then(function (res) {
+        var tpl = res[0], md = res[1];
+        // use only the part after the first "---" separator line (the prompt body)
+        var sep = tpl.indexOf('\n---\n');
+        var body = sep >= 0 ? tpl.slice(sep + 5) : tpl;
+        var prompt = body
+          .replace('{{PROFILE}}', '(プロフィールは未提供。必要なら progress/profile.md の内容をここに貼る)')
+          .replace('{{RECENT_SESSIONS}}', '(前回までの記録は未提供。必要なら progress/sessions/ の直近の内容をここに貼る)')
+          .replace('{{LESSON}}', stripFrontMatter(md).trim());
+        var done = function (ok) {
+          btn.disabled = false;
+          btn.textContent = ok ? 'コピーしました!' : 'コピーできませんでした';
+          setTimeout(function () { btn.textContent = 'Claude 用プロンプトをコピー'; }, 2000);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(prompt).then(function () { done(true); }, function () { done(false); });
+        else done(false);
+      }).catch(function () { btn.disabled = false; btn.textContent = '読み込みに失敗しました'; });
+    });
   }
 
   // ---------- 30-minute timer ----------

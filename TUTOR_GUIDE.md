@@ -38,11 +38,11 @@ Claude は実時間を測れないので、**ターン数(やりとりの回数)
 
 | セクション | 目安 | 進め方 |
 |---|---|---|
-| 1. Warm-up (3 min) | 3〜4 往復 | 前回の記録(`progress/log.md`)があれば、その弱点に関連する復習質問を 1 つ追加する。宿題があれば最初に聞く。 |
+| 1. Warm-up (3 min) | 3〜4 往復 | 前回の記録(`progress/profile.md`、`progress/sessions/`)があれば、その弱点に関連する復習質問を 1 つ追加する。宿題があれば最初に聞く。 |
 | 2. Vocabulary & Idioms (7 min) | 6〜8 往復 | 単語表を **まとめて 1 回** 表示 → 発音・使い方の注意を日本語で一言 → Quick check を 1 問ずつ出題。学習者が自分で例文を 1 つ作る課題を 1〜2 回入れる。 |
 | 3. Key Expressions (7 min) | 6〜8 往復 | パターンを 1 つずつ示し、Drill を 1 問ずつ出す。間違いはその場で短く直し、正しい文を復唱してもらう。「よくある間違い」は該当するものが出たときに触れる。 |
 | 4. Role-play (10 min) | 10〜14 往復 | ① Scenario と Roles を日本語で説明 ② Model dialogue を提示し、Ken のセリフを学習者に読んでもらう(講師が相手役) ③ Your turn の Variation A(必要なら B)を **モデルを見ずに** 行う。講師は相手役に徹し、レッスンに書かれた「予想外の一言」を必ず入れる ④ ロールプレイ中は **間違いを指摘せず**、終わってからまとめて 3 点以内でフィードバック。 |
-| 5. Wrap-up (3 min) | 2〜3 往復 | 今日のフィードバック(良かった点 2〜3、改善点 2〜3、それぞれ具体的な文を引用)→ Self-check を一緒に確認 → Homework を伝える → `progress/log.md` に記録。 |
+| 5. Wrap-up (3 min) | 2〜3 往復 | 今日のフィードバック(良かった点 2〜3、改善点 2〜3、それぞれ具体的な文を引用)→ Self-check を一緒に確認 → Homework を伝える → `progress/` に記録してコミット(6 章)。 |
 
 ターン数はあくまで目安です。学習者が順調ならテンポよく進め、つまずいていればそのセクションに留まってください。ただし **Role-play は必ず行う**(時間がなければ Vocabulary の Quick check と Drill を減らす)。
 
@@ -62,22 +62,31 @@ Claude は実時間を測れないので、**ターン数(やりとりの回数)
 - セクションの切り替え時に「--- 2. Vocabulary & Idioms (7 min) ---」のように見出しを 1 行入れて、今どこにいるか分かるようにする。
 - 学習者のレベルに合わせて英語の速さ(文の長さ・語彙)を調整する。Level 1 では短い文、Level 4 では自然な長さで。
 
-## 6. 記録のフォーマット(`progress/log.md`)
+## 6. 記録の読み方と残し方(`progress/`)
 
-レッスン終了時に、以下の形式で `progress/log.md` の末尾に追記する(ファイルの既存部分は変更しない)。
+レッスンの記録は git で管理し、**講師は毎回、記録を読んでからレッスンを始め、終わったら記録を残してコミットする**。
+これにより、前回の弱点・宿題・本人の状況を踏まえた連続したレッスンになる。
 
-```markdown
-## YYYY-MM-DD — Lesson NN: タイトル
-
-- **Completed:** yes / partial(どこまで)
-- **Good:** 具体的に 2〜3 点(学習者の実際の発話を引用)
-- **To improve:** 具体的に 2〜3 点(✗ → ✓ の形で)
-- **Weak vocabulary:** 出てこなかった・間違えた単語や表現
-- **Homework:** レッスンの Homework(必要なら学習者に合わせて調整)
-- **Next:** 次に進むレッスン番号、または復習が必要なら「Review NN」
+```
+progress/profile.md              学習者プロファイル(本人の仕事・弱点・定着した表現・進め方の希望)。毎回読む・必要なら更新
+progress/log.md                  一覧表。終了時に 1 行追記
+progress/sessions/YYYY-MM-DD-lesson-NN.md   各回の詳細記録。終了時に作成
+progress/sessions/TEMPLATE.md    記録の雛形
 ```
 
-`/review` はこの記録を読んで、`Weak vocabulary` と `To improve` を優先的に出題します。
+### レッスン前に読むもの
+
+1. `profile.md` — 「本人について」(ロールプレイの設定を本人に寄せる)、「繰り返し出る弱点」(今日も意識させる)、「進め方の希望」
+2. `sessions/` の直近 3 回 — `Homework`(Warm-up で確認)、`To improve` / `Weak vocabulary`(再登場させる)、`Learner notes`、`Next`
+
+### レッスン後に書くもの
+
+1. `sessions/YYYY-MM-DD-lesson-NN.md` を `TEMPLATE.md` の形式で作成。`Good` と `To improve` には **学習者の実際の発話を引用** する。
+2. `log.md` の表に 1 行追記。
+3. `profile.md` を更新(追記中心。本人が書いた部分は消さない)。
+4. `git add progress && git commit -m "Lesson NN の記録を追加 (YYYY-MM-DD)"`。push は学習者に一度だけ確認する。
+
+記録は学習者の個人情報を含むので、本人の許可なく要約・削除・改変しない。
 
 ## 7. やらないこと
 

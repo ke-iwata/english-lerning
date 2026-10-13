@@ -1,6 +1,6 @@
 ---
 name: review
-description: これまでのレッスン記録(progress/log.md)をもとに、弱点の単語・表現を 10〜15 分で復習する。使い方 `/review`、`/review 03`(特定レッスンの復習)、`/review vocab`(単語だけ)。
+description: これまでのレッスン記録(progress/)をもとに、弱点の単語・表現を 10〜15 分で復習し、終了後に記録を保存してコミットする。使い方 `/review`、`/review 03`(特定レッスンの復習)、`/review vocab`(単語だけ)。
 ---
 
 # /review — 弱点に合わせた復習セッション
@@ -10,7 +10,7 @@ description: これまでのレッスン記録(progress/log.md)をもとに、�
 ## 準備(学習者には見せない)
 
 1. `TUTOR_GUIDE.md` を読む(言語の使い分け、間違いの直し方に従う)。
-2. `progress/log.md` を読み、完了したレッスンと、各回の `Weak vocabulary` / `To improve` を集める。
+2. `progress/profile.md`、`progress/log.md`、`progress/sessions/` の全ファイル(TEMPLATE.md を除く)を読み、完了したレッスンと、各回の `Weak vocabulary` / `To improve` を集める。複数回出ているものを最優先にする。
 3. `lessons/index.json` と、復習対象のレッスンファイルを読む。
    - 引数にレッスン番号があればそのレッスンのみ。
    - 引数が空なら、完了済みレッスンのうち **直近 3 回** + 記録に弱点として繰り返し出ている項目。
@@ -23,15 +23,24 @@ description: これまでのレッスン記録(progress/log.md)をもとに、�
 - **Part 2: Fix the mistake (約 4 分)** — 記録の `To improve` にある ✗ 文を、学習者自身に直してもらう(5 問程度)。
 - **Part 3: Mini role-play (約 5 分)** — 復習対象レッスンの Scenario のうち 1 つを、短縮版(5〜6 往復)で行う。相手役は元のレッスンの Roles に従う。訂正は終わってからまとめて。
 
-## 終了時
+## 終了時(記録の保存とコミット)
 
-- 今日できるようになったこと・まだ怪しいものを 2〜3 点ずつ伝える。
-- `progress/log.md` の末尾に、次の形式で追記する。
+1. 今日できるようになったこと・まだ怪しいものを 2〜3 点ずつ伝える。
+2. `progress/sessions/YYYY-MM-DD-review.md` に次の形式で記録する(日付は `date +%Y-%m-%d`)。
 
 ```markdown
-## YYYY-MM-DD — Review (Lessons NN, NN, NN)
+# YYYY-MM-DD — Review (Lessons NN, NN, NN)
 
-- **Now OK:** …
-- **Still weak:** …
-- **Next:** …
+## Now OK
+- …
+
+## Still weak
+- …
+
+## Next
+- …
 ```
+
+3. `progress/log.md` の表の末尾に 1 行追記: `| YYYY-MM-DD | Review | Lessons NN, NN | yes | … |`
+4. `progress/profile.md` の「繰り返し出る弱点」から定着したものを「定着した表現」へ移す。
+5. `git add progress && git commit -m "Review の記録を追加 (YYYY-MM-DD)"`。「push しておきますか?」と一度だけ聞き、はいなら `git push`。

@@ -73,10 +73,11 @@
           <li>レッスン番号を指定して開始する(音声入力を使うと会話練習として効果的です)
             <div class="copy-box"><span>/lesson 01</span><button class="btn small" data-copy>コピー</button></div>
           </li>
-          <li>終了後、Claude が <code>progress/log.md</code> に記録と弱点メモを残します。復習は <code>/review</code> で。</li>
+          <li>終了後、Claude が <code>progress/sessions/</code> に記録(良かった点・直す点・弱い単語・宿題)を書いてコミットします。次回はその記録を読んでから始まるので、レッスンがつながります。復習は <code>/review</code>、自由会話は <code>/freetalk</code>。</li>
         </ol>
         <p class="notice" style="margin-top:12px">
-          レッスン中は、英語で話すのが基本ですが、分からないときは日本語で「ヒントちょうだい」「もう一回」「日本語で説明して」と言えば、講師(Claude)が日本語で助けてくれます。
+          レッスン中は、英語で話すのが基本ですが、分からないときは日本語で「ヒント」「もう一回」「日本語で」「終了」と言えば、講師(Claude)が日本語で助けてくれます。
+          Claude Code 以外(claude.ai のアプリなど)で使うときは、各レッスンページの「Claude 用プロンプトをコピー」を押して貼り付けてください。プロンプトの詳細は <a href="https://github.com/ke-iwata/english-lerning/tree/main/prompts" target="_blank" rel="noopener">prompts/</a> にあります。
         </p>
       </div>
     </section>

@@ -1,6 +1,8 @@
-# レッスン記録 (Progress Log)
+# レッスン記録一覧 (Progress Log)
 
-Claude Code の `/lesson` が、各レッスン終了時にここへ記録を追記します。
-`/review` はこのログを読んで、弱点に合わせた復習を行います。
+各レッスンの詳細は `progress/sessions/YYYY-MM-DD-lesson-NN.md` にあります。
+このファイルは一覧用のサマリーで、`/lesson` `/review` `/freetalk` が終了時に 1 行ずつ追記します。
+学習者プロファイルは `progress/profile.md`。
 
----
+| 日付 | 種別 | 内容 | 完了 | 次回 |
+|---|---|---|---|---|

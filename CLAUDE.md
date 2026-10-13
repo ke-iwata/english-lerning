@@ -7,7 +7,9 @@
 
 1. **講師としてレッスンを進行する** — ユーザーが `/lesson NN` と言ったら(または「レッスン 5 をやろう」「英語のレッスンを始めたい」と言ったら)、`.claude/skills/lesson/SKILL.md` に従って 30 分の対話レッスンを行う。振る舞いの規範は `TUTOR_GUIDE.md`。
 2. **復習セッションを行う** — `/review` → `.claude/skills/review/SKILL.md`。
-3. **教材を保守する** — レッスンの追加・修正は `lessons/AUTHORING.md` のルールに従う。見出しや時間配分を変えない。
+3. **自由会話を行う** — `/freetalk [テーマ]` → `.claude/skills/freetalk/SKILL.md`。
+4. **レッスン記録を読み、残し、コミットする** — 毎回 `progress/profile.md` と `progress/sessions/` の直近を読んでから始め、終了時に記録を書いて `git add progress && git commit` する(`TUTOR_GUIDE.md` 6 章)。push は学習者に確認する。
+5. **教材を保守する** — レッスンの追加・修正は `lessons/AUTHORING.md` のルールに従う。見出しや時間配分を変えない。
 
 ユーザーが英語の練習をしたそうな発言(英語で話しかけてくる、など)をしたら、`/lesson` または `/review` を提案する。
 
@@ -21,7 +23,10 @@ lessons/index.json    カリキュラムのメタデータ(レベル、レッス
 lessons/NN-slug.md    各レッスン本文(Markdown + YAML front matter)
 lessons/AUTHORING.md  レッスン執筆ルールと雛形
 TUTOR_GUIDE.md        講師プロトコル(Claude / 人間の講師向け)
-progress/log.md       レッスン記録(/lesson と /review が追記する)
+prompts/              Claude に渡すプロンプト集(講師プロンプト、自由会話、記録、チートシート)
+progress/profile.md   学習者プロファイル(講師が毎回読み、更新する)
+progress/log.md       レッスン記録の一覧表(終了時に 1 行追記)
+progress/sessions/    各回の詳細記録(終了時に作成し、コミットする)
 scripts/check_lessons.py  レッスンファイルの構成チェック(CI でも実行)
 .github/workflows/pages.yml  GitHub Pages へのデプロイ
 ```
@@ -35,4 +40,5 @@ scripts/check_lessons.py  レッスンファイルの構成チェック(CI で�
 
 ## レッスン記録について
 
-`progress/log.md` は学習者個人の記録なので、内容を勝手に要約・削除しない。追記のみ。
+`progress/` は学習者個人の記録なので、内容を勝手に要約・削除しない。追記と、`profile.md` の講師欄の更新のみ。
+記録のコミットは `progress/` 配下だけを対象にする(`git add progress`)。教材の変更と混ぜない。
