@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lesson — Business English 30</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="./"><span class="dot"></span>Business English 30</a>
+      <nav class="nav">
+        <a href="./#curriculum">カリキュラム</a>
+        <a href="https://github.com/ke-iwata/english-lerning" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="lesson-top">
+      <div><a href="./#curriculum">← カリキュラム</a> <span id="level-tag"></span></div>
+      <div id="lesson-pos"></div>
+    </div>
+
+    <div class="lesson-toolbar">
+      <div class="timer" id="timer">
+        <button class="btn small" id="timer-btn">▶ 30分タイマー</button>
+        <span class="time" id="timer-time">30:00</span>
+        <span class="phase" id="timer-phase">Warm-up 3分 → 単語 7分 → 表現 7分 → ロールプレイ 10分 → まとめ 3分</span>
+      </div>
+      <button class="btn small done-toggle" id="done-btn">✓ 完了にする</button>
+    </div>
+
+    <div class="copy-box" style="margin-bottom:16px">
+      <span id="claude-cmd">Claude Code で始める: /lesson 01</span>
+      <button class="btn small" data-copy-target="claude-cmd-raw">コピー</button>
+      <span id="claude-cmd-raw" hidden>/lesson 01</span>
+    </div>
+
+    <article class="content" id="content"><p class="muted">読み込み中…</p></article>
+
+    <nav class="lesson-nav">
+      <a class="btn" id="prev-link" href="#">← 前のレッスン</a>
+      <a class="btn" id="next-link" href="#">次のレッスン →</a>
+    </nav>
+
+    <footer class="footer">
+      <p>Business English 30 — <a id="source-link" href="#" target="_blank" rel="noopener">このレッスンの Markdown を GitHub で見る</a></p>
+    </footer>
+  </main>
+
+  <script src="assets/app.js"></script>
+  <script>BE30.renderLesson();</script>
+</body>
+</html>
