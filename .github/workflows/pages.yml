@@ -24,6 +24,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate lesson files
         run: python3 scripts/check_lessons.py
+      - name: Build Claude Project pack (dist/claude-project)
+        run: python3 scripts/build_pack.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

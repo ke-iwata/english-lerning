@@ -8,6 +8,7 @@
 1. **講師としてレッスンを進行する** — ユーザーが `/lesson NN` と言ったら(または「レッスン 5 をやろう」「英語のレッスンを始めたい」と言ったら)、`.claude/skills/lesson/SKILL.md` に従って 30 分の対話レッスンを行う。振る舞いの規範は `TUTOR_GUIDE.md`。
 2. **復習セッションを行う** — `/review` → `.claude/skills/review/SKILL.md`。
 3. **自由会話を行う** — `/freetalk [テーマ]` → `.claude/skills/freetalk/SKILL.md`。
+3b. **Claude アプリ(音声モード)でのレッスン記録を取り込む** — `/log` → `.claude/skills/log/SKILL.md`。学習者は主に Claude アプリの音声モードでレッスンを受け、記録だけをこのリポジトリに持ち帰る運用も想定している(`VOICE.md`)。
 4. **レッスン記録を読み、残し、コミットする** — 毎回 `progress/profile.md` と `progress/sessions/` の直近を読んでから始め、終了時に記録を書いて `git add progress && git commit` する(`TUTOR_GUIDE.md` 6 章)。push は学習者に確認する。
 5. **教材を保守する** — レッスンの追加・修正は `lessons/AUTHORING.md` のルールに従う。見出しや時間配分を変えない。
 
@@ -25,7 +26,9 @@ lessons/index.json    カリキュラムのメタデータ(レベル、レッス
 lessons/NN-slug.md    各レッスン本文(Markdown + YAML front matter)
 lessons/AUTHORING.md  レッスン執筆ルールと雛形
 TUTOR_GUIDE.md        講師プロトコル(Claude / 人間の講師向け)
-prompts/              Claude に渡すプロンプト集(講師プロンプト、自由会話、記録、チートシート)
+prompts/              Claude に渡すプロンプト集(講師プロンプト、音声モード用 Project インストラクション、自由会話、記録、チートシート)
+VOICE.md              Claude アプリの音声モードで受ける手順
+scripts/build_pack.py Claude アプリの Project に入れる教材・記録パックを dist/claude-project/ に生成(gitignore。CI でも生成)
 progress/profile.md   学習者プロファイル(講師が毎回読み、更新する)
 progress/log.md       レッスン記録の一覧表(終了時に 1 行追記)
 progress/sessions/    各回の詳細記録(終了時に作成し、コミットする)

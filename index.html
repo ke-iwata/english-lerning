@@ -13,6 +13,7 @@
       <a class="brand" href="./"><span class="dot"></span>Business English 30</a>
       <nav class="nav">
         <a href="#how">使い方</a>
+        <a href="#voice">音声で受ける</a>
         <a href="#curriculum">カリキュラム</a>
         <a href="https://github.com/ke-iwata/english-lerning" target="_blank" rel="noopener">GitHub</a>
       </nav>
@@ -34,7 +35,7 @@
       </p>
       <div class="actions">
         <a class="btn primary" href="lesson.html?id=01">Lesson 01 から始める</a>
-        <a class="btn" href="#how">Claude Code で使う</a>
+        <a class="btn" href="#voice">Claude と声でレッスン</a>
       </div>
     </section>
 
@@ -48,21 +49,21 @@
       <h2 class="section-title">使い方</h2>
       <div class="grid-3">
         <div class="card">
-          <h3>1. Claude Code を講師にする(おすすめ)</h3>
-          <p>リポジトリを clone して <code>claude</code> を起動し、<code>/lesson 01</code> と打つだけ。Claude がテキストに沿って 30 分のレッスンを進行し、相手役・文法の指摘・最後のフィードバックまで行います。音声入力 + 読み上げで、声だけのレッスンもできます。</p>
+          <h3>1. Claude アプリの音声モードで(おすすめ)</h3>
+          <p>Claude アプリの Project に講師インストラクションと教材を入れ、音声モードで会話。Claude が声で質問し、相手役を演じ、間違いを直します。スマホでも PC でも。<a href="#voice">設定手順</a></p>
         </div>
         <div class="card">
-          <h3>2. 人間の講師と使う</h3>
-          <p>各レッスンには時間配分・講師用メモ・モデル対話・ドリルの答えがそろっています。講師はこのページを開きながら進行できます。</p>
+          <h3>2. Claude Code を講師にする</h3>
+          <p>リポジトリを clone して <code>claude</code> を起動し、<code>/lesson 01</code> と打つだけ。テキスト(または音声入力)で 30 分のレッスンを進行し、終了後に記録を自動でコミットします。</p>
         </div>
         <div class="card">
-          <h3>3. ひとりで予習・復習する</h3>
-          <p>単語表と表現パターンを音読し、ロールプレイの Ken のセリフを声に出して練習。レッスンページのタイマーで 30 分の流れを体感できます。</p>
+          <h3>3. 人間の講師と / ひとりで</h3>
+          <p>各レッスンには時間配分・講師用メモ・モデル対話・ドリルの答えがそろっているので、人間の講師との 1on1 にもそのまま使えます。ひとりなら単語表と Ken のセリフを音読し、タイマーで 30 分の流れを体感。</p>
         </div>
       </div>
 
       <div class="card" style="margin-top:14px">
-        <h3>Claude Code でレッスンを始める手順</h3>
+        <h3>Claude Code でレッスンを始める手順(テキスト中心)</h3>
         <ol class="steps">
           <li>リポジトリを clone する
             <div class="copy-box"><span>git clone https://github.com/ke-iwata/english-lerning.git &amp;&amp; cd english-lerning</span><button class="btn small" data-copy>コピー</button></div>
@@ -73,17 +74,37 @@
           <li>レッスン番号を指定して開始する
             <div class="copy-box"><span>/lesson 01</span><button class="btn small" data-copy>コピー</button></div>
           </li>
-          <li>声で話したいときは、Claude Code の音声入力をオンにして、<code>voice</code> を付けて始める(講師の返答が読み上げられます。macOS は追加インストール不要)
-            <div class="copy-box"><span>/voice tap</span><button class="btn small" data-copy>コピー</button></div>
-            <div class="copy-box" style="margin-top:6px"><span>/lesson 01 voice</span><button class="btn small" data-copy>コピー</button></div>
-            <p class="muted" style="margin:6px 0 0;font-size:13px">Space を押して話し、もう一度押すと送信。詳しい設定は <a href="https://github.com/ke-iwata/english-lerning/blob/main/VOICE.md" target="_blank" rel="noopener">VOICE.md</a>。</p>
-          </li>
+          <li>Claude Code でも声で受けたい場合は <code>/voice tap</code>(音声入力)と <code>/lesson 01 voice</code>(返答の読み上げ)。詳細は <a href="https://github.com/ke-iwata/english-lerning/blob/main/VOICE.md#別の方法-claude-code-で読み上げる" target="_blank" rel="noopener">VOICE.md</a>。</li>
           <li>終了後、Claude が <code>progress/sessions/</code> に記録(良かった点・直す点・弱い単語・宿題)を書いてコミットします。次回はその記録を読んでから始まるので、レッスンがつながります。復習は <code>/review</code>、自由会話は <code>/freetalk</code>。</li>
         </ol>
         <p class="notice" style="margin-top:12px">
           レッスン中は、英語で話すのが基本ですが、分からないときは日本語で「ヒント」「もう一回」「日本語で」「終了」と言えば、講師(Claude)が日本語で助けてくれます。
-          Claude Code 以外(claude.ai のアプリなど)で使うときは、各レッスンページの「Claude 用プロンプトをコピー」を押して貼り付けてください。プロンプトの詳細は <a href="https://github.com/ke-iwata/english-lerning/tree/main/prompts" target="_blank" rel="noopener">prompts/</a> にあります。
+          Project を作らずに 1 回だけ試すなら、各レッスンページの「Claude 用プロンプトをコピー」を Claude アプリに貼り付けてから音声モードに入ってもレッスンできます。プロンプトの詳細は <a href="https://github.com/ke-iwata/english-lerning/tree/main/prompts" target="_blank" rel="noopener">prompts/</a> にあります。
         </p>
+      </div>
+    </section>
+
+    <section id="voice">
+      <h2 class="section-title">Claude と声でレッスンする(Claude アプリの音声モード)</h2>
+      <p class="muted">Claude アプリ(iOS / Android / デスクトップ / Web)の音声モードで、Claude を講師にします。初回だけ Project を作れば、あとは「Lesson 03」と言って話すだけ。</p>
+      <div class="card">
+        <ol class="steps">
+          <li><strong>教材ファイルをダウンロード</strong>(Claude の Project に入れるファイル)
+            <div class="actions" style="margin-top:8px">
+              <a class="btn small" href="dist/claude-project/00-project-instructions.md" download>00 講師インストラクション</a>
+              <a class="btn small" href="dist/claude-project/01-curriculum.md" download>01 カリキュラム</a>
+              <a class="btn small" href="dist/claude-project/level1-foundation.md" download>Level 1</a>
+              <a class="btn small" href="dist/claude-project/level2-everyday-work.md" download>Level 2</a>
+              <a class="btn small" href="dist/claude-project/level3-meetings.md" download>Level 3</a>
+              <a class="btn small" href="dist/claude-project/level4-practice.md" download>Level 4</a>
+              <a class="btn small" href="dist/claude-project/lessons-all.md" download>全レッスン(1 ファイル)</a>
+            </div>
+          </li>
+          <li><strong>Claude アプリで Project を作る</strong> — Projects → New Project。「Set project instructions」に <code>00 講師インストラクション</code> の中身を貼り付け、Project knowledge に <code>01 カリキュラム</code> と <code>Level 1〜4</code>(または全レッスン)をアップロード。</li>
+          <li><strong>レッスンを始める</strong> — Project 内で新しいチャットを開き、テキストで <code>Lesson 01</code> と送ってから、入力欄の右の音波アイコンで音声モードに入る。あとは声で会話。「ヒント」「もう一回」「日本語で」「終了」は日本語で OK。</li>
+          <li><strong>記録を残す</strong> — 終わったら音声モードを止め、テキストで「記録を作って」。出てきた記録をコピーして、リポジトリの Claude Code で <code>/log</code>(保存・コミット・次回用の progress-pack を生成)。生成された <code>progress-pack.md</code> を Project knowledge に入れておくと、次回は前回の弱点と宿題を踏まえて始まります。</li>
+        </ol>
+        <p class="notice" style="margin-top:12px">詳しい手順とトラブル対処は <a href="https://github.com/ke-iwata/english-lerning/blob/main/VOICE.md" target="_blank" rel="noopener">VOICE.md</a>。音声モードはターン制なので、言い終えたら少し間を置くか、プッシュトゥトークにすると快適です。</p>
       </div>
     </section>
 

@@ -26,7 +26,16 @@
 | 3 会議とプレゼン (B1) | 構造的に話す | 13 会議の進行 / 14 データと傾向 / 15 手順・仕組みの説明 / 16 短いプレゼン / 17 質疑応答 / 18 提案と交渉 |
 | 4 実践 (B1+–B2) | 実戦場面 | 19 フィードバック(コードレビュー) / 20 障害報告 / 21 要件確認 / 22 英語面接 / 23 懇親会 / 24 総合演習 |
 
-## Claude Code でレッスンする
+## Claude と声でレッスンする(Claude アプリの音声モード)
+
+1. `python3 scripts/build_pack.py`(またはサイトからダウンロード)で `dist/claude-project/` の教材ファイルを用意
+2. Claude アプリで Project を作り、instructions に `00-project-instructions.md` を貼り、knowledge にレッスンファイルをアップロード
+3. Project 内のチャットで `Lesson 01` と送り、音声モードに入る。あとは声で会話
+4. 終わったら「記録を作って」→ 記録をコピー → Claude Code で `/log`(保存・コミット・次回用 progress-pack 生成)
+
+手順の詳細とトラブル対処は [`VOICE.md`](VOICE.md)。
+
+## Claude Code でレッスンする(テキスト中心)
 
 ```bash
 git clone https://github.com/ke-iwata/english-lerning.git
@@ -42,19 +51,13 @@ Claude Code の中で:
 /lesson 05 roleplay # ロールプレイだけやる
 /review             # これまでの弱点を 10〜15 分で復習
 /freetalk 出張      # テキストを離れて自由会話(テーマは省略可)
+/log                # Claude アプリ(音声モード)でやったレッスンの記録を取り込む
 ```
 
 Claude は `TUTOR_GUIDE.md` の講師プロトコルに従って、英語で質問し、詰まったら日本語でヒントを出し、ロールプレイの相手役を務め、最後にフィードバックをします。
 レッスン中はいつでも日本語で「ヒント」「もう一回」「日本語で」「スキップ」「終了」と言えます([チートシート](prompts/cheat-sheet.md))。
 
-### 声で話す・声で聞く(音声モード)
-
-```
-/voice tap          # Claude Code の音声入力をオン(Space を押して話す)
-/lesson 01 voice    # 講師の返答を自動で読み上げる(macOS は追加インストール不要)
-```
-
-英語は英語の声、日本語の説明は日本語の声で読み上げます。設定と操作は [`VOICE.md`](VOICE.md)。
+Claude Code 内でも `/voice tap`(音声入力)と `/lesson 01 voice`(返答の読み上げ)で声のレッスンができます([`VOICE.md`](VOICE.md) の「別の方法」)。
 
 ### レッスン記録は git に積み上がる
 

@@ -6,6 +6,7 @@ claude.ai のチャットやアプリ(音声入力が使えるので会話練習
 
 | ファイル | 用途 | 使う人 |
 |---|---|---|
+| [`voice-tutor-instructions.md`](voice-tutor-instructions.md) | **Claude アプリの Project の instructions に貼る**講師インストラクション(音声モード用の話し方ルール入り)。`scripts/build_pack.py` が `dist/claude-project/00-project-instructions.md` に出力 | Claude アプリ(音声モード) |
 | [`tutor-system-prompt.md`](tutor-system-prompt.md) | 講師役 Claude の基本プロンプト。レッスン本文と記録を差し込んで使う | Claude Code(自動)/ チャット(手動) |
 | [`lesson-start.md`](lesson-start.md) | レッスン開始時にユーザーが送る指示の例 | ユーザー |
 | [`cheat-sheet.md`](cheat-sheet.md) | レッスン中に使える一言(ヒント・もう一回・日本語で…)と、英語で言いたいときの表現 | ユーザー |
