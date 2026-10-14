@@ -49,7 +49,7 @@
       <div class="grid-3">
         <div class="card">
           <h3>1. Claude Code を講師にする(おすすめ)</h3>
-          <p>リポジトリを clone して <code>claude</code> を起動し、<code>/lesson 01</code> と打つだけ。Claude がテキストに沿って 30 分のレッスンを進行し、相手役・発音/文法の指摘・最後のフィードバックまで行います。</p>
+          <p>リポジトリを clone して <code>claude</code> を起動し、<code>/lesson 01</code> と打つだけ。Claude がテキストに沿って 30 分のレッスンを進行し、相手役・文法の指摘・最後のフィードバックまで行います。音声入力 + 読み上げで、声だけのレッスンもできます。</p>
         </div>
         <div class="card">
           <h3>2. 人間の講師と使う</h3>
@@ -70,8 +70,13 @@
           <li>Claude Code を起動する
             <div class="copy-box"><span>claude</span><button class="btn small" data-copy>コピー</button></div>
           </li>
-          <li>レッスン番号を指定して開始する(音声入力を使うと会話練習として効果的です)
+          <li>レッスン番号を指定して開始する
             <div class="copy-box"><span>/lesson 01</span><button class="btn small" data-copy>コピー</button></div>
+          </li>
+          <li>声で話したいときは、Claude Code の音声入力をオンにして、<code>voice</code> を付けて始める(講師の返答が読み上げられます。macOS は追加インストール不要)
+            <div class="copy-box"><span>/voice tap</span><button class="btn small" data-copy>コピー</button></div>
+            <div class="copy-box" style="margin-top:6px"><span>/lesson 01 voice</span><button class="btn small" data-copy>コピー</button></div>
+            <p class="muted" style="margin:6px 0 0;font-size:13px">Space を押して話し、もう一度押すと送信。詳しい設定は <a href="https://github.com/ke-iwata/english-lerning/blob/main/VOICE.md" target="_blank" rel="noopener">VOICE.md</a>。</p>
           </li>
           <li>終了後、Claude が <code>progress/sessions/</code> に記録(良かった点・直す点・弱い単語・宿題)を書いてコミットします。次回はその記録を読んでから始まるので、レッスンがつながります。復習は <code>/review</code>、自由会話は <code>/freetalk</code>。</li>
         </ol>

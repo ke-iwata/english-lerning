@@ -1,6 +1,6 @@
 ---
 name: lesson
-description: 指定したレッスン番号の 30 分ビジネス英会話レッスンを、講師として対話形式で進行し、終了後に記録を保存してコミットする。使い方 `/lesson 05`、`/lesson`(次のレッスンを自動選択)、`/lesson 05 roleplay`(ロールプレイだけ)。
+description: 指定したレッスン番号の 30 分ビジネス英会話レッスンを、講師として対話形式で進行し、終了後に記録を保存してコミットする。使い方 `/lesson 05`、`/lesson`(次のレッスンを自動選択)、`/lesson 05 roleplay`(ロールプレイだけ)、`/lesson 05 voice`(音声モード: 講師の返答を読み上げる)。
 ---
 
 # /lesson — 30 分の 1on1 英会話レッスンを進行する
@@ -17,7 +17,8 @@ description: 指定したレッスン番号の 30 分ビジネス英会話レッ
    把握すること: 前回の Homework、`To improve` と `Weak vocabulary`、`Learner notes`、`Next`。
 3. `lessons/index.json` を読み、レッスン番号からファイルを特定する。
    - 引数が空のとき: 直近の記録の `Next` にあるレッスン、記録がなければ `01` を選ぶ。選んだ理由を一言で学習者に伝える。
-   - 引数の 2 つ目に `warmup` / `vocab` / `expressions` / `roleplay` / `wrapup` があれば、そのセクションだけを行う(前後は省略)。
+   - 引数に `warmup` / `vocab` / `expressions` / `roleplay` / `wrapup` があれば、そのセクションだけを行う(前後は省略)。
+   - 引数に `voice` があるか、`progress/profile.md` の「進め方の希望」に「音声モード: on」とあれば **音声モード**: `bash scripts/voice.sh on` を実行し、以後 `TUTOR_GUIDE.md` の「8. 音声モード」の話し方(1〜3 文、表・記号なし)で進める。`scripts/voice.sh status` が on のときも同様。最初のターンで「音声入力は Claude Code の /voice で。止めたいときは『音声オフ』と言ってください」と一言添える。
 4. 該当する `lessons/NN-*.md` を全部読む。front matter、講師用メモ(`<details>` 内)、モデル対話、Drill の Answers まで把握する。
 
 ## 進行

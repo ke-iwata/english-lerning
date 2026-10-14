@@ -123,6 +123,8 @@
       document.getElementById('lesson-pos').textContent = 'Lesson ' + lesson.id + ' / ' + pad(data.lessons.length);
       document.getElementById('claude-cmd').textContent = 'Claude Code で始める: /lesson ' + lesson.id;
       document.getElementById('claude-cmd-raw').textContent = '/lesson ' + lesson.id;
+      document.getElementById('claude-cmd-voice').textContent = '声で受ける(読み上げあり): /lesson ' + lesson.id + ' voice';
+      document.getElementById('claude-cmd-voice-raw').textContent = '/lesson ' + lesson.id + ' voice';
       document.getElementById('source-link').href = REPO_URL + '/blob/main/lessons/' + lesson.file;
 
       var prevLink = document.getElementById('prev-link');

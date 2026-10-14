@@ -23,6 +23,8 @@ claude.ai のチャットやアプリ(音声入力が使えるので会話練習
 ## Claude Code で使う手順
 
 ```
+/voice tap        # 音声入力をオン(声でレッスンするとき)
+/lesson 03 voice  # Lesson 03 を音声モードで開始(講師の返答を読み上げ。設定は ../VOICE.md)
 /lesson 03        # Lesson 03 を開始(記録の読み込み・レッスン進行・記録の保存とコミットまで自動)
 /lesson           # 記録から次のレッスンを自動選択
 /review           # 弱点の復習

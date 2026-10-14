@@ -17,6 +17,10 @@ description: これまでのレッスン記録(progress/)をもとに、弱点�
    - 記録が空なら、「まだ記録がありません。まず `/lesson 01` から始めましょう」と伝えて終了。
    - 引数に `vocab` があれば Part 1 のみ、`roleplay` があれば Part 3 のみ。
 
+## 音声モード
+
+引数に `voice` があるか、`progress/profile.md` に「音声モード: on」とあるか、`bash scripts/voice.sh status` が on なら、`bash scripts/voice.sh on` を実行し、`TUTOR_GUIDE.md` の「8. 音声モード」の話し方(1〜3 文、表・記号なし)で進める。
+
 ## 進行(目安 10〜15 分、1 ターン 1 問)
 
 - **Part 1: Vocabulary flash (約 5 分)** — 弱点の単語・イディオムを中心に 10 問。日本語→英語と英語→日本語を混ぜる。言えなかったものは例文つきでもう一度。

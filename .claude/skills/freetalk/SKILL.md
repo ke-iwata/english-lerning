@@ -13,6 +13,10 @@ description: テキストを使わない 15〜20 分の自由英会話。記録�
 2. `progress/profile.md` と、`progress/sessions/` の直近 3 ファイル(ファイル名の日付順)を読む。
 3. テーマが空なら、記録にある学習者の興味・仕事の話題から 2〜3 案を出して選んでもらう。
 
+## 音声モード
+
+引数に `voice` があるか、`progress/profile.md` に「音声モード: on」とあるか、`bash scripts/voice.sh status` が on なら、`bash scripts/voice.sh on` を実行し、`TUTOR_GUIDE.md` の「8. 音声モード」の話し方(1〜3 文、表・記号なし)で進める。
+
 ## 進行
 
 `prompts/free-talk.md` の「ルール」に従う。1 ターン 1 質問、英語が基本、会話中は訂正しない。

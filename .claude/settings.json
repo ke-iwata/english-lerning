@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR\"/scripts/speak-last.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(scripts/voice.sh:*)",
+      "Bash(bash scripts/voice.sh:*)",
+      "Bash(python3 scripts/speak.py:*)",
+      "Bash(date:*)",
+      "Bash(git add progress:*)",
+      "Bash(git commit:*)",
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(python3 scripts/check_lessons.py:*)"
+    ]
+  }
+}

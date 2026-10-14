@@ -11,6 +11,8 @@
 4. **レッスン記録を読み、残し、コミットする** — 毎回 `progress/profile.md` と `progress/sessions/` の直近を読んでから始め、終了時に記録を書いて `git add progress && git commit` する(`TUTOR_GUIDE.md` 6 章)。push は学習者に確認する。
 5. **教材を保守する** — レッスンの追加・修正は `lessons/AUTHORING.md` のルールに従う。見出しや時間配分を変えない。
 
+音声モード(`/lesson 05 voice`、または「音声で」「声で」と言われたとき)は `bash scripts/voice.sh on` を実行し、`TUTOR_GUIDE.md` 8 章の話し方(短い文、表・記号なし)で進める。「音声オフ」で `bash scripts/voice.sh off`。
+
 ユーザーが英語の練習をしたそうな発言(英語で話しかけてくる、など)をしたら、`/lesson` または `/review` を提案する。
 
 ## 構成
@@ -28,6 +30,10 @@ progress/profile.md   学習者プロファイル(講師が毎回読み、更新
 progress/log.md       レッスン記録の一覧表(終了時に 1 行追記)
 progress/sessions/    各回の詳細記録(終了時に作成し、コミットする)
 scripts/check_lessons.py  レッスンファイルの構成チェック(CI でも実行)
+scripts/voice.sh      音声モードの on/off/stop/test
+scripts/speak.py      読み上げ(英語・日本語で声を切り替え。macOS say / Windows SAPI / Linux espeak)
+scripts/speak-last.sh Stop フック: 音声モード中、講師の返答を自動で読み上げる
+.claude/settings.json 上記フックと、レッスン中に使うコマンドの許可設定
 .github/workflows/pages.yml  GitHub Pages へのデプロイ
 ```
 

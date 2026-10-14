@@ -47,7 +47,14 @@ Claude Code の中で:
 Claude は `TUTOR_GUIDE.md` の講師プロトコルに従って、英語で質問し、詰まったら日本語でヒントを出し、ロールプレイの相手役を務め、最後にフィードバックをします。
 レッスン中はいつでも日本語で「ヒント」「もう一回」「日本語で」「スキップ」「終了」と言えます([チートシート](prompts/cheat-sheet.md))。
 
-音声入力(OS の音声入力機能など)を使うと、実際の会話に近い練習になります。
+### 声で話す・声で聞く(音声モード)
+
+```
+/voice tap          # Claude Code の音声入力をオン(Space を押して話す)
+/lesson 01 voice    # 講師の返答を自動で読み上げる(macOS は追加インストール不要)
+```
+
+英語は英語の声、日本語の説明は日本語の声で読み上げます。設定と操作は [`VOICE.md`](VOICE.md)。
 
 ### レッスン記録は git に積み上がる
 
@@ -80,6 +87,7 @@ python3 -m http.server 8000
 ## レッスンを追加・修正する
 
 - ルールと雛形: [`lessons/AUTHORING.md`](lessons/AUTHORING.md)
+- 講師の振る舞い: [`TUTOR_GUIDE.md`](TUTOR_GUIDE.md)、音声モード: [`VOICE.md`](VOICE.md)
 - 一覧への登録: [`lessons/index.json`](lessons/index.json)
 - チェック: `python3 scripts/check_lessons.py`
 
